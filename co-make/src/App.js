@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
-
+import MainPage from './components/MainPage';
+import SignUp from './components/SignUp';
+// import { SignIn } from './components/SignIn'
 function App() {
+  const initialSignUpValues = {
+    className: ""
+  }
+  const [formValues, setFormValues] = useState(initialSignUpValues)
+
+  // const inputChange = (className) => {
+  //   setFormValues({ formValues, [className]: value })
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Switch>
+        <Route exact path='/'>
+          <MainPage />
+        </Route>
+        {/* <Route path='/signin'>
+          <SignIn />
+        </Route> */}
+        <Route path='/signup'>
+          <SignUp />
+        </Route>
+      </Switch>
     </div>
   );
-}
-
-export default App;
+};
+export default App
