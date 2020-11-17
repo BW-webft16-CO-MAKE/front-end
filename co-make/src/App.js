@@ -9,6 +9,11 @@ function App() {
     className: ""
   }
   const [formValues, setFormValues] = useState(initialSignUpValues)
+
+  // const inputChange = (className) => {
+  //   setFormValues({ formValues, [className]: value })
+  // }
+
   return (
     <div>
       <Switch>
