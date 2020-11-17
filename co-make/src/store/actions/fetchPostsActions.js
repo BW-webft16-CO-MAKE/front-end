@@ -47,6 +47,7 @@ export const getPosts = () => (dispatch) => {
             });
 };
 
+// Post id date.now()? 
 export const editPost = (postToEdit) => (dispatch) => {
     dispatch({ type: EDIT_POST_START });
         axios   
