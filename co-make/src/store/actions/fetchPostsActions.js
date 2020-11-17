@@ -53,10 +53,10 @@ export const editPost = (postToEdit) => (dispatch) => {
         axios   
             .put("URL", postToEdit)
             .then((res) => {
-                // ?
-                dispatch({ type: EDIT_POST_SUCCESS, payload: posts.map((post) => 
-                post.id === res.data.id ? res.data : post
-                )})
+                // // ?
+                // dispatch({ type: EDIT_POST_SUCCESS, payload: posts.map((post) => 
+                // post.id === res.data.id ? res.data : post
+                // )})
             })
             .catch((err) => {
                 dispatch({ type: EDIT_POST_FAILURE, payload: err })
@@ -68,10 +68,10 @@ export const deletePost = (post) => (dispatch) => {
         axios
             .delete(`URL/${post.id}`)
             .then((res) => {
-                // ?
-                dispatch({ type: DELETE_POST_SUCCESS, payload: posts.filter((post) => {
-                    return post.id !== res.data
-                })})
+                // // ?
+                // dispatch({ type: DELETE_POST_SUCCESS, payload: posts.filter((post) => {
+                //     return post.id !== res.data
+                // })})
             })
             .catch((err) => {
                 dispatch({ type: DELETE_POST_FAILURE, payload: err })
