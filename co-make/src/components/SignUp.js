@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import '../App.css';
 import { Button, TextField } from '@material-ui/core';
-import { width } from '@material-ui/system';
-import { withStyles } from '@material-ui/core/styles';
 
 const SignUp = () => {
 
@@ -86,22 +84,22 @@ const SignUp = () => {
                 <label>{/* First Name */}</label>
                 <TextField className="textfield" defaultValue="Normal" size="normal" id="outlined-basic" label="First Name" variant="outlined"   size="large" name="first_name" type="text" className="formInput" onChange={changeInput1} value={inputValue.first_name} placeholder="First name" required />
                 <label>{/* Last Name */}</label>
-                <TextField className="textfield" id="outlined-basic" label="Last Name" variant="outlined" name="last_name" type="text" className="formInput" onChange={changeInput2} value={inputValue.last_name} placeholder="Last name" />
+                <TextField  id="outlined-basic" label="Last Name" variant="outlined" name="last_name" type="text" className="formInput" onChange={changeInput2} value={inputValue.last_name} placeholder="Last name" />
             </div>
             <div className="formContent">
                 <label>{/* Email */}</label>
-                <TextField className="textfield" id="outlined-basic" label="Email" variant="outlined" name="email" type="text" className="formInput" onChange={changeInput3} value={inputValue.email} placeholder="Email" />
+                <TextField  id="outlined-basic" label="Email" variant="outlined" name="email" type="text" className="formInput" onChange={changeInput3} value={inputValue.email} placeholder="Email" />
             </div>
             <div className="formContent">
                 <label>{/* Username */}</label>
-                <TextField className="textfield" id="outlined-basic" label="Username" variant="outlined" name="username" type="text" className="formInput" onChange={changeInput5} value={inputValue.username} placeholder="Username" />
+                <TextField id="outlined-basic" label="Username" variant="outlined" name="username" type="text" className="formInput" onChange={changeInput5} value={inputValue.username} placeholder="Username" />
             </div>
             <div className="formContent">
                 <label>{/* Password */}</label>
-                <TextField  className="textfield" id="outlined-basic" label="Password" variant="outlined"  name="password" type="text" className="formInput" onChange={changeInput4} value={inputValue.password} placeholder="Password" />
+                <TextField id="outlined-basic" label="Password" variant="outlined"  name="password" type="text" className="formInput" onChange={changeInput4} value={inputValue.password} placeholder="Password" />
             </div>
             <div className="submit">
-                <Button className="textfield" variant="contained" color="secondary" type="submit" size="large" onClick={userSubmit}>Sign Up</Button>
+                <Button variant="contained" color="secondary" type="submit" size="large" onClick={userSubmit}>Sign Up</Button>
                 <p className="forgot-password">Already Registered <Link style={{textDecoration: 'none'}} to='/signin'>Sign In</Link>
                 </p>
             </div>

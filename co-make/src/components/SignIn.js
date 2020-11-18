@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import { Button, TextField } from '@material-ui/core';
+
 
 const SignIn = () => {
 
@@ -58,19 +60,19 @@ const SignIn = () => {
 
 
     return (
-        <form onSubmit={onSubmit}>
+        <form className='formTwo' onSubmit={onSubmit}>
             <h3> Login</h3>
             <div className="formContent">
                 <label>{/* Username */}</label>
-                <input name="username" type="text" className="formInput" onChange={changeInput1} value={inputValue.username} placeholder="username" required />
+                <TextField id="outlined-basic" label="Password" variant="outlined" name="username" type="text" className="formInput" onChange={changeInput1} value={inputValue.username} placeholder="username" required />
             </div>
             <div className="formContent">
                 <label>{/* Password */}</label>
-                <input name="password" type="text" className="formInput" onChange={changeInput2} value={inputValue.password} placeholder="password" required />
+                <TextField id="outlined-basic" label="Password" variant="outlined"  name="password" type="text" className="formInput" onChange={changeInput2} value={inputValue.password} placeholder="password" required />
             </div>
 
             <div className="submit">
-                <button type="submit" onClick={userSignIn}>Sign In</button>
+                <Button variant="contained" color="secondary" type="submit" size="large" type="submit" onClick={userSignIn}>Sign In</Button>
             </div>
         </form>
     )
