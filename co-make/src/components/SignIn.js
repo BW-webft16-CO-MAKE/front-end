@@ -64,7 +64,7 @@ const SignIn = () => {
             <h3> Login</h3>
             <div className="formContent">
                 <label>{/* Username */}</label>
-                <TextField id="outlined-basic" label="Password" variant="outlined" name="username" type="text" className="formInput" onChange={changeInput1} value={inputValue.username} placeholder="username" required />
+                <TextField id="outlined-basic" label="Username" variant="outlined" name="username" type="text" className="formInput" onChange={changeInput1} value={inputValue.username} placeholder="username" required />
             </div>
             <div className="formContent">
                 <label>{/* Password */}</label>
