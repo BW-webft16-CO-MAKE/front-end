@@ -6,10 +6,10 @@ const AllPosts = () => {
 
   const getAllPosts = () => {
     axiosWithAuth()
-      .get("/posts")
+      .get("api/posts")
       .then((res) => {
         console.log("All Posts", res);
-        setPosts(res.data.data());
+        setPosts(res.data());
       })
       .catch((err) => {
         console.log(err);
