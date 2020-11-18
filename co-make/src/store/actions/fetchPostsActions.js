@@ -40,7 +40,7 @@ export const addPost = (newPost) => (dispatch) => {
 export const getPosts = () => (dispatch) => {
     dispatch({ type: FETCH_POST_START });
         axiosWithAuth()   
-            .get("/api/posts")
+            .get("/api/posts/")
             .then((res) => {
                 console.log(res)
                 dispatch({ type: FETCH_POST_SUCCESS, payload: res.data })
@@ -55,7 +55,7 @@ export const editPost = (postToEdit) => (dispatch) => {
     const { id } = useParams();
     dispatch({ type: EDIT_POST_START });
         axiosWithAuth()   
-            .put(`/api/posts/${id}`, postToEdit)
+            .put(`/api/posts/${id}/`, postToEdit)
             .then((res) => {
                 // // ?
                 // dispatch({ type: EDIT_POST_SUCCESS, payload: posts.map((post) => 
@@ -70,7 +70,7 @@ export const editPost = (postToEdit) => (dispatch) => {
 export const deletePost = (post) => (dispatch) => {
     dispatch({ type: DELETE_POST_START });
         axiosWithAuth()
-            .delete(`/api/posts/${post.id}`)
+            .delete(`/api/posts/${post.id}/`)
             .then((res) => {
                 // // ?
                 // dispatch({ type: DELETE_POST_SUCCESS, payload: posts.filter((post) => {

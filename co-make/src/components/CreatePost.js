@@ -45,7 +45,7 @@ const CreatePost = (props) => {
 
   useEffect(() => {
     axiosWithAuth()
-      .get(`/posts/${id}`)
+      .get(`/api/posts/${id}`)
       .then((res) => {
         setValue({...res.data})
       })
