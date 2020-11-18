@@ -1,18 +1,18 @@
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import "./App.css";
 import MainPage from "./components/MainPage";
 import SignUp from "./components/SignUp";
 import Nav from "./components/Nav";
 import Posts from "./components/AllPosts";
 import Create from "./components/CreatePost";
-// import SignIn from './components/SignIn'
+import SignIn from './components/SignIn'
 function App() {
   return (
     <div>
       <Nav />
       <Route exact path="/" component={MainPage} />
       <Route path="/allposts" component={Posts} />
-      {/* <Route path="/signin" component={SignIn} /> */}
+      <Route path="/signin" component={SignIn} />
       <Route path="/create" component={Create} />
       <Route path="/signup" component={SignUp} />
     </div>

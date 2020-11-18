@@ -69,6 +69,32 @@ nav a:hover {
   animation-iteration-count: 10;
 }
 
+.forgot-password {
+  font-size: 1.3rem;
+}
+
+.form {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 5% 37%;
+}
+
+.formTwo {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  margin: 5% 37%;
+  text-align: center;
+}
+
+.textfield {
+  padding: 50%;
+  background-color: red;
+}
+
 @keyframes navhover {
   0% {
     background-color: #b8f2e6;
