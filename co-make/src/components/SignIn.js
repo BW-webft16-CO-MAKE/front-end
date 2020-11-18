@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-// import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 
 const SignIn = () => {
 
@@ -9,7 +9,7 @@ const SignIn = () => {
         password: "",
     }
     const [inputValue, setInputValue] = useState(initialFormValues)
-    // const [user, setUser] = useState([])
+    const [user, setUser] = useState([])
 
     const changeInput1 = evt => {
         const { value } = evt.target;
@@ -22,25 +22,33 @@ const SignIn = () => {
 
     };
 
-    // const getUser = user => {
-    //     axios.get('https://co-make-backend-tt16.herokuapp.com/auth/user/' + id)
+    // const getNewUser = newUser => {
+    //     axios.get('https://co-make-backend-tt16.herokuapp.com/api/auth/register', newUser)
     //         .then(res => {
-    //             console.log(res)
-    //             setUser([...user, setUser])
+    //             console.log(res.data)
+    //             setUser([...user, newUser])
     //             setInputValue(initialFormValues)
+    //             console.log(newUser)
     //         })
     //         .catch(err => {
     //             console.log(err)
     //         })
     // }
 
+    const getNewUser = useEffect(() => {
+        fetch('https://co-make-backend-tt16.herokuapp.com/api/auth/login')
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+            })
+    }, [])
+
     const userSignIn = () => {
         const userSignIn = {
             username: inputValue.username.trim(),
             password: inputValue.password.trim(),
         }
-        console.log(userSignIn)
-        // getUser(userSignIn)
+        getNewUser(userSignIn)
     }
 
     const onSubmit = evt => {

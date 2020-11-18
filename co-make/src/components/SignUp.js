@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-// import SignIn from './SignIn';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-// import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 const SignUp = () => {
 
     const initialFormValues =
     {
-        firstName: "",
-        lastName: "",
+        first_name: "",
+        last_name: "",
         email: "",
+        username: "",
         password: ""
     }
     const [inputValue, setInputValue] = useState(initialFormValues)
@@ -18,62 +17,55 @@ const SignUp = () => {
 
     const changeInput1 = evt => {
         const { value } = evt.target;
-        console.log(value)
-        setInputValue({ ...inputValue, firstName: value })
-        console.log(inputValue)
+        setInputValue({ ...inputValue, first_name: value })
 
     };
     const changeInput2 = evt => {
         const { value } = evt.target;
-        console.log(value)
-        setInputValue({ ...inputValue, lastName: value })
-        console.log(inputValue)
+        setInputValue({ ...inputValue, last_name: value })
 
     };
     const changeInput3 = evt => {
         const { value } = evt.target;
-        console.log(value)
         setInputValue({ ...inputValue, email: value })
-        console.log(inputValue)
 
     };
     const changeInput4 = evt => {
         const { value } = evt.target;
-        console.log(value)
         setInputValue({ ...inputValue, password: value })
-        console.log(inputValue)
+
+    };
+    const changeInput5 = evt => {
+        const { value } = evt.target;
+        setInputValue({ ...inputValue, username: value })
 
     };
 
-
-    const postNewUser = user => {
-        axios.post('https://co-make-backend-tt16.herokuapp.com/auth/register', user)
+    const postNewUser = newUser => {
+        axios.post('https://co-make-backend-tt16.herokuapp.com/api/auth/register', newUser)
             .then(res => {
-                console.log(res)
-                setUser([...user, setUser])
+                console.log(res.data)
+                // console.log(setUser([...user, newUser]))
+                setUser([...user, newUser])
                 setInputValue(initialFormValues)
-                console.log(user)
+                console.log(newUser)
             })
             .catch(err => {
                 console.log(err)
             })
     }
 
-
     const userSubmit = () => {
         const newUser = {
-            firstName: inputValue.firstName.trim(),
-            lastName: inputValue.lastName.trim(),
+            first_name: inputValue.first_name.trim(),
+            last_name: inputValue.last_name.trim(),
             email: inputValue.email.trim(),
+            username: inputValue.username.trim(),
             password: inputValue.password.trim()
         }
 
         postNewUser(newUser)
     }
-
-    // const reset = () => {
-    //     setInputValue('')
-    // }
 
     const onSubmit = evt => {
         evt.preventDefault();
@@ -86,15 +78,19 @@ const SignUp = () => {
             <h3> Sign Up</h3>
             <div className="formContent">
                 <label>First name</label>
-                <input name="firstName" type="text" className="formInput" onChange={changeInput1} value={inputValue.firstName} placeholder="First name" required />
+                <input name="first_name" type="text" className="formInput" onChange={changeInput1} value={inputValue.first_name} placeholder="First name" required />
             </div>
             <div className="formContent">
                 <label>Last name</label>
-                <input name="lastName" type="text" className="formInput" onChange={changeInput2} value={inputValue.lastName} placeholder="Last name" />
+                <input name="last_name" type="text" className="formInput" onChange={changeInput2} value={inputValue.last_name} placeholder="Last name" />
             </div>
             <div className="formContent">
                 <label>Email</label>
                 <input name="email" type="text" className="formInput" onChange={changeInput3} value={inputValue.email} placeholder="Email" />
+            </div>
+            <div className="formContent">
+                <label>Username</label>
+                <input name="username" type="text" className="formInput" onChange={changeInput5} value={inputValue.username} placeholder="Username" />
             </div>
             <div className="formContent">
                 <label>Password</label>
