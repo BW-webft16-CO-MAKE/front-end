@@ -8,7 +8,7 @@ const initialState = {
     name: "",
     description: "",
     location: "",
-    // id: Date.now()
+    // id: Date.now() ? 
 }
 
 const CreatePost = (props) => {
