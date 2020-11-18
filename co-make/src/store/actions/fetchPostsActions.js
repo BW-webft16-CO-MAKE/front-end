@@ -1,4 +1,7 @@
-import axios from "axios";
+import axiosWithAuth from "../../utils/axiosWithAuth";
+import { useParams } from "react-router-dom";
+
+
 
 // CRUD OPERATIONS: 
     //// CREATE/POST -
@@ -23,8 +26,8 @@ import axios from "axios";
 
 export const addPost = (newPost) => (dispatch) => {
     dispatch({ type: ADD_POST_START });
-        axios   
-            .post("https://co-make-backend-tt16.herokuapp.com/posts/newpost", newPost)
+        axiosWithAuth()   
+            .post("api/posts/newpost", newPost)
             .then((res) => {
                 console.log(res)
                 dispatch({ type: ADD_POST_SUCCESS, payload: res.data })
@@ -36,8 +39,8 @@ export const addPost = (newPost) => (dispatch) => {
 
 export const getPosts = () => (dispatch) => {
     dispatch({ type: FETCH_POST_START });
-        axios   
-            .get("URL")
+        axiosWithAuth()   
+            .get("/api/posts")
             .then((res) => {
                 console.log(res)
                 dispatch({ type: FETCH_POST_SUCCESS, payload: res.data })
@@ -49,9 +52,10 @@ export const getPosts = () => (dispatch) => {
 
 // Post id date.now()? 
 export const editPost = (postToEdit) => (dispatch) => {
+    const { id } = useParams();
     dispatch({ type: EDIT_POST_START });
-        axios   
-            .put("URL", postToEdit)
+        axiosWithAuth()   
+            .put(`/api/posts/${id}`, postToEdit)
             .then((res) => {
                 // // ?
                 // dispatch({ type: EDIT_POST_SUCCESS, payload: posts.map((post) => 
@@ -65,8 +69,8 @@ export const editPost = (postToEdit) => (dispatch) => {
 
 export const deletePost = (post) => (dispatch) => {
     dispatch({ type: DELETE_POST_START });
-        axios
-            .delete(`URL/${post.id}`)
+        axiosWithAuth()
+            .delete(`/api/posts/${post.id}`)
             .then((res) => {
                 // // ?
                 // dispatch({ type: DELETE_POST_SUCCESS, payload: posts.filter((post) => {

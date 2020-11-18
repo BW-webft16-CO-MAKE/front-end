@@ -100,7 +100,7 @@ const mapStateToProps = (state) => {
   return {
     name: state.name,
     description: state.description,
-    location: state.description,
+    location: state.location,
   };
 };
 
