@@ -3,16 +3,10 @@ import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import MainPage from './components/MainPage';
 import SignUp from './components/SignUp';
-// import { SignIn } from './components/SignIn'
-function App() {
-  const initialSignUpValues = {
-    className: ""
-  }
-  const [formValues, setFormValues] = useState(initialSignUpValues)
+import SignIn from './components/SignIn'
 
-  // const inputChange = (className) => {
-  //   setFormValues({ formValues, [className]: value })
-  // }
+
+function App() {
 
   return (
     <div>
@@ -20,9 +14,9 @@ function App() {
         <Route exact path='/'>
           <MainPage />
         </Route>
-        {/* <Route path='/signin'>
+        <Route path='/signin'>
           <SignIn />
-        </Route> */}
+        </Route>
         <Route path='/signup'>
           <SignUp />
         </Route>
