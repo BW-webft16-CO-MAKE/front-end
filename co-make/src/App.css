@@ -16,12 +16,10 @@ body {
 header {
   height: 25vh;
   background-color: #e0ffff;
-  /* background-image: url(); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
   background-attachment: fixed;
-  /* margin-bottom: 5%; */
 }
 
 .logo {
@@ -92,10 +90,6 @@ nav a:hover {
   margin: 5% 37%;
   text-align: center;
 }
-
-/* .formContentEmail {
-  width: 100%;
-} */
 
 .textfield {
   padding: 50%;

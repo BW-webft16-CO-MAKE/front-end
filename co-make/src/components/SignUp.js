@@ -91,7 +91,6 @@ const SignUp = () => {
             </div>
             <div className="formContent">
                     <TextField id="outlined-basic" label="Username" variant="outlined" name="username" type="text" className="formInput formInputAlt" onChange={changeInput5} value={inputValue.username} placeholder="Username" />
-                    <label>{/* Password */}</label>
                 <TextField id="outlined-basic" label="Password" variant="outlined"  name="password" type="text" className="formInput formInputAlt" onChange={changeInput4} value={inputValue.password} placeholder="Password" />
             </div>
             <div className="submit">
