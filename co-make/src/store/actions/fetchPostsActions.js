@@ -24,7 +24,7 @@ import axios from "axios";
 export const addPost = (newPost) => (dispatch) => {
     dispatch({ type: ADD_POST_START });
         axios   
-            .post("URL", newPost)
+            .post("https://co-make-backend-tt16.herokuapp.com/posts/newpost", newPost)
             .then((res) => {
                 console.log(res)
                 dispatch({ type: ADD_POST_SUCCESS, payload: res.data })
