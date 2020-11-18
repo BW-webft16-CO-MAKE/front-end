@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 
 const SignIn = () => {
@@ -9,7 +9,6 @@ const SignIn = () => {
         password: "",
     }
     const [inputValue, setInputValue] = useState(initialFormValues)
-    const [user, setUser] = useState([])
 
     const changeInput1 = evt => {
         const { value } = evt.target;
@@ -22,26 +21,15 @@ const SignIn = () => {
 
     };
 
-    // const getNewUser = newUser => {
-    //     axios.get('https://co-make-backend-tt16.herokuapp.com/api/auth/register', newUser)
-    //         .then(res => {
-    //             console.log(res.data)
-    //             setUser([...user, newUser])
-    //             setInputValue(initialFormValues)
-    //             console.log(newUser)
-    //         })
-    //         .catch(err => {
-    //             console.log(err)
-    //         })
-    // }
-
-    const getNewUser = useEffect(() => {
-        fetch('https://co-make-backend-tt16.herokuapp.com/api/auth/login')
-            .then(res => res.json())
+    const getNewUser = newUser => {
+        axios.post('https://co-make-backend-tt16.herokuapp.com/api/auth/login', newUser)
             .then(res => {
-                console.log(res)
+                console.log(res, "success!")
             })
-    }, [])
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     const userSignIn = () => {
         const userSignIn = {
