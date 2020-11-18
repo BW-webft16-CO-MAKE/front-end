@@ -61,11 +61,11 @@ const SignIn = () => {
         <form onSubmit={onSubmit}>
             <h3> Login</h3>
             <div className="formContent">
-                <label>username</label>
+                <label>{/* Username */}</label>
                 <input name="username" type="text" className="formInput" onChange={changeInput1} value={inputValue.username} placeholder="username" required />
             </div>
             <div className="formContent">
-                <label>password</label>
+                <label>{/* Password */}</label>
                 <input name="password" type="text" className="formInput" onChange={changeInput2} value={inputValue.password} placeholder="password" required />
             </div>
 
