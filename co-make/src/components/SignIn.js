@@ -79,20 +79,9 @@ const SignIn = () => {
           required
         />
       </div>
-
-      <div className="submit">
-        <Button
-          variant="contained"
-          color="secondary"
-          type="submit"
-          size="large"
-          type="submit"
-          onClick={userSignIn}
-        >
-          Sign In
-        </Button>
-      </div>
-    </form>
-  );
-};
-export default SignIn;
+            <div className="submit">
+                <Button variant="contained" color="secondary" type="submit" size="large" onClick={userSignIn}>Sign In</Button>
+            </div>
+        </form>
+    )
+}
