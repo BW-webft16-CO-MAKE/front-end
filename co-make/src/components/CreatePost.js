@@ -2,7 +2,29 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import { addPost } from "../store/actions/fetchPostsActions"
+import { addPost } from "../store/actions/fetchPostsActions";
+import { Button, TextField } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
+// MUI Styling
+const useStyles = makeStyles((theme) => ({
+    formContainer: {
+      display: "flex",
+      alignContent: "center",
+      flexDirection: "column",
+      width: "25%",
+      textAlign: "center",
+      margin: "0 37%",
+    },
+
+    submitButton: {
+      marginTop: "2%",
+    },
+
+    contentWrapper: {
+      textAlign: "center",
+    },
+}));
 
 const initialState = {
     name: "",
@@ -16,6 +38,7 @@ const CreatePost = (props) => {
   // const [postList, setPostList] = useState([])
   const { id } = useParams();
   const history = useHistory();
+  const classes = useStyles();
 
   // const createPost = (data) => {
   //   const newPost = {...data};
@@ -53,14 +76,16 @@ const CreatePost = (props) => {
   }, []);
 
   return (
-    <div>
+    <div className={classes.contentWrapper}>
       <h2>Create a Post!</h2>
       <h4>See an issue that's not already on the list?</h4>
       <h4>Please fill out the form below to let everyone know!</h4>
       
-      <form>
+      <form className={classes.formContainer}>
         <p>Please enter your name.</p>
-        <input 
+        <TextField 
+          variant="outlined"
+          label="Full Name" 
           type="text"
           name="name"
           onChange={handleChanges}
@@ -70,7 +95,9 @@ const CreatePost = (props) => {
         <div className="breakpoint" />
 
         <p>What is the issue?</p>
-        <input 
+        <TextField 
+          variant="outlined"
+          label="Description" 
           type="text"
           name="description"
           onChange={handleChanges}
@@ -80,7 +107,9 @@ const CreatePost = (props) => {
         <div className="breakpoint" />
 
         <p>Where is the issue?</p>
-        <input 
+        <TextField 
+          variant="outlined"
+          label="Location" 
           type="text"
           name="location"
           onChange={handleChanges}
@@ -89,7 +118,12 @@ const CreatePost = (props) => {
         />
         <div className="breakpoint" />
 
-        <button onClick={handleSubmit}>Create your Post!</button>
+        <Button 
+        className={classes.submitButton}
+        variant="contained"
+        color="secondary"
+        size="large"
+        onClick={handleSubmit}>Create your Post!</Button>
 
       </form>
     </div>
