@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button, TextField } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 const SignIn = () => {
   const initialFormValues = {
@@ -8,6 +9,7 @@ const SignIn = () => {
     password: "",
   };
   const [inputValue, setInputValue] = useState(initialFormValues);
+  const history = useHistory();
 
   const changeInput1 = (evt) => {
     const { value } = evt.target;
@@ -31,6 +33,7 @@ const SignIn = () => {
       .catch((err) => {
         console.log(err);
       });
+    history.push("/allposts");
   };
 
   const userSignIn = () => {

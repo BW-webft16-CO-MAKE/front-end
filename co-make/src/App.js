@@ -12,9 +12,9 @@ function App() {
     <div>
       <Nav />
       <Route exact path="/" component={MainPage} />
-      <Route path="/allposts" component={Posts} />
+      <PrivateRoute path="/allposts" component={Posts} />
       <Route path="/signin" component={SignIn} />
-      <Route path="/create" component={Create} />
+      <PrivateRoute path="/create" component={Create} />
       <Route path="/signup" component={SignUp} />
     </div>
   );
