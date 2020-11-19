@@ -16,12 +16,10 @@ body {
 header {
   height: 25vh;
   background-color: #e0ffff;
-  /* background-image: url(); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
   background-attachment: fixed;
-  /* margin-bottom: 5%; */
 }
 
 .logo {
@@ -63,7 +61,7 @@ nav a {
 
 nav a:hover {
   background-color: #b8f2e6;
-  color: #ffcd69;
+  color: black;
   animation-name: navhover;
   animation-duration: 6s;
   animation-iteration-count: 10;
@@ -74,12 +72,15 @@ nav a:hover {
 }
 
 .form {
-  width: 20%;
+  width: 30%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* flex-direction: row; */
   align-content: center;
-  flex-wrap: wrap;
-  margin: 5% 37%;
+  /* flex-wrap: wrap; */
+  margin: 0% 35%;
+  padding:0% 5% 5% 5%;
+  text-align: center;
 }
 
 .formTwo {
@@ -94,6 +95,36 @@ nav a:hover {
   padding: 50%;
   background-color: red;
 }
+
+.h3 {
+  margin-top: 5%;
+  text-align: center;
+}
+
+.formInputEmail {
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.formInputAlt {
+  
+  width: 50%;
+}
+
+.item {
+  padding: 1%;
+  margin: auto;
+  width: 30%;
+  border:3px solid #118ab2;
+  margin-bottom: 1%;
+  border-radius: 10px;
+}
+
+
+.Posts {
+  text-align: center;
+}
+
 
 @keyframes navhover {
   0% {

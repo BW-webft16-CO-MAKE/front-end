@@ -24,14 +24,14 @@ const AllPosts = () => {
   return (
     <div className="postspage">
       <section className="section">
-        <h3>Posts</h3>
+        <h3 className="Posts">Posts</h3>
         <br></br>
         <div className="posts">
           {posts.map((post) => (
             <div className="item">
-              <p>{post.post_name}</p>
-              <p>{post.post_description}</p>
-              <p>{post.post_location}</p>
+              <p>Name: {post.post_name}</p>
+              <p>Descrription: {post.post_description}</p>
+              <p>Location: {post.post_location}</p>
             </div>
           ))}
         </div>
