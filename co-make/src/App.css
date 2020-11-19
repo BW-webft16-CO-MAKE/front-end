@@ -61,7 +61,7 @@ nav a {
 
 nav a:hover {
   background-color: #b8f2e6;
-  color: #ffcd69;
+  color: black;
   animation-name: navhover;
   animation-duration: 6s;
   animation-iteration-count: 10;
@@ -109,6 +109,20 @@ nav a:hover {
 .formInputAlt {
   
   width: 50%;
+}
+
+.item {
+  padding: 1%;
+  margin: auto;
+  width: 30%;
+  border:3px solid #118ab2;
+  margin-bottom: 1%;
+  border-radius: 10px;
+}
+
+
+.Posts {
+  text-align: center;
 }
 
 
