@@ -5,7 +5,8 @@ import SignUp from "./components/SignUp";
 import Nav from "./components/Nav";
 import Posts from "./components/AllPosts";
 import Create from "./components/CreatePost";
-import SignIn from './components/SignIn'
+import SignIn from "./components/SignIn";
+import PrivateRoute from "./components/PrivateRoute";
 function App() {
   return (
     <div>
