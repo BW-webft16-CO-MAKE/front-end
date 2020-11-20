@@ -24,7 +24,7 @@ const CreatePost = () => {
       ...formValues,
     };
     axiosWithAuth()
-      .post(`api/users/3/newpost`, newPost)
+      .post(`api/posts/newpost`, newPost)
       .then((res) => history.push("/allposts"))
       .catch((err) => console.log(err));
   };
