@@ -8,30 +8,30 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // MUI Styling
 const useStyles = makeStyles((theme) => ({
-    formContainer: {
-      display: "flex",
-      alignContent: "center",
-      flexDirection: "column",
-      width: "25%",
-      textAlign: "center",
-      margin: "0 37%",
-    },
+  formContainer: {
+    display: "flex",
+    alignContent: "center",
+    flexDirection: "column",
+    width: "25%",
+    textAlign: "center",
+    margin: "0 37%",
+  },
 
-    submitButton: {
-      marginTop: "2%",
-    },
+  submitButton: {
+    marginTop: "2%",
+  },
 
-    contentWrapper: {
-      textAlign: "center",
-    },
+  contentWrapper: {
+    textAlign: "center",
+  },
 }));
 
 const initialState = {
-    name: "",
-    description: "",
-    location: "",
-    // id: Date.now() ? 
-}
+  name: "",
+  description: "",
+  location: "",
+  // id: Date.now() ?
+};
 
 const CreatePost = (props) => {
   const [value, setValue] = useState(initialState);
@@ -63,16 +63,16 @@ const CreatePost = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.addPost(value);
-    history.push('/allposts')
+    history.push("/allposts");
   };
 
   useEffect(() => {
     axiosWithAuth()
       .get(`/api/posts/${id}`)
       .then((res) => {
-        setValue({...res.data})
+        setValue({ ...res.data });
       })
-      .catch((err) => console.log("Error creating post.", err))
+      .catch((err) => console.log("Error creating post.", err));
   }, []);
 
   return (
@@ -80,12 +80,12 @@ const CreatePost = (props) => {
       <h2>Create a Post!</h2>
       <h4>See an issue that's not already on the list?</h4>
       <h4>Please fill out the form below to let everyone know!</h4>
-      
+
       <form className={classes.formContainer}>
         <p>Please enter your name.</p>
-        <TextField 
+        <TextField
           variant="outlined"
-          label="Full Name" 
+          label="Full Name"
           type="text"
           name="name"
           onChange={handleChanges}
@@ -95,9 +95,9 @@ const CreatePost = (props) => {
         <div className="breakpoint" />
 
         <p>What is the issue?</p>
-        <TextField 
+        <TextField
           variant="outlined"
-          label="Description" 
+          label="Description"
           type="text"
           name="description"
           onChange={handleChanges}
@@ -107,9 +107,9 @@ const CreatePost = (props) => {
         <div className="breakpoint" />
 
         <p>Where is the issue?</p>
-        <TextField 
+        <TextField
           variant="outlined"
-          label="Location" 
+          label="Location"
           type="text"
           name="location"
           onChange={handleChanges}
@@ -118,13 +118,15 @@ const CreatePost = (props) => {
         />
         <div className="breakpoint" />
 
-        <Button 
-        className={classes.submitButton}
-        variant="contained"
-        color="secondary"
-        size="large"
-        onClick={handleSubmit}>Create your Post!</Button>
-
+        <Button
+          className={classes.submitButton}
+          variant="contained"
+          color="secondary"
+          size="large"
+          onClick={handleSubmit}
+        >
+          Create your Post!
+        </Button>
       </form>
     </div>
   );

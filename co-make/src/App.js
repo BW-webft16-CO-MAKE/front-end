@@ -6,7 +6,9 @@ import Nav from "./components/Nav";
 import Posts from "./components/AllPosts";
 import Create from "./components/CreatePost";
 import SignIn from "./components/SignIn";
+import UpdateForm from "./components/UpdateForm";
 import PrivateRoute from "./components/PrivateRoute";
+
 function App() {
   return (
     <div>
@@ -16,6 +18,7 @@ function App() {
       <Route path="/signin" component={SignIn} />
       <PrivateRoute path="/create" component={Create} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/updatepost/:id" component={UpdateForm} />
     </div>
   );
 }
