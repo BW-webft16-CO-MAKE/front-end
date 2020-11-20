@@ -12,44 +12,12 @@ const AllPosts = ({ posts, updatePost }) => {
   const [allPosts, setAllPosts] = useState([]);
   const { id } = useParams();
   const history = useHistory();
-  //   const [editing, setEditing] = useState(false);
-  //   const [postToEdit, setPostToEdit] = useState(initialValues);
-
-  //   const editPost = (post) => {
-  //     setEditing(true);
-  //     setPostToEdit(post);
-  //   };
-
-  //   const saveEdit = (e) => {
-  //     e.preventDefault();
-  //     axiosWithAuth()
-  //       .put(`api/posts/:${postToEdit.id}`, postToEdit)
-  //       .then((res) => {
-  //         setEditing(false);
-  //         updatePost(
-  //           posts.map((post) => {
-  //             return post.id === postToEdit.id ? res.data : post;
-  //           })
-  //         );
-  //       })
-  //       .catch((err) => console.log(err));
-  //     console.log(postToEdit);
-  //   };
-
-  const deletePost = (post) => {
-    axiosWithAuth()
-      .delete(`api/posts/:${id}`)
-      .then((res) => {
-        updatePost(posts.filter((post) => post.id !== res.data));
-      })
-      .catch((err) => console.log(err));
-  };
 
   const getAllPosts = () => {
     axiosWithAuth()
       .get("api/posts")
       .then((res) => {
-        console.log("All Posts", res);
+        console.log("All Posts", res.data);
         setAllPosts(res.data);
       })
       .catch((err) => {
@@ -57,10 +25,16 @@ const AllPosts = ({ posts, updatePost }) => {
       });
   };
 
+  const deletePost = () => {
+    axiosWithAuth()
+      .delete(`api/posts/${id}`)
+      .then((res) => history.push("/allposts"))
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     deletePost();
     getAllPosts();
-    console.log();
   }, []);
 
   return (
@@ -74,10 +48,11 @@ const AllPosts = ({ posts, updatePost }) => {
               <p>Name: {post.post_name}</p>
               <p>Descrription: {post.post_description}</p>
               <p>Location: {post.post_location}</p>
+              <p>Id: {post.id}</p>
               <button
                 className="update-button"
                 onClick={() => {
-                  history.push(`/update-post/${id}`);
+                  history.push(`/updatepost/${post.id}`);
                 }}
               >
                 Update

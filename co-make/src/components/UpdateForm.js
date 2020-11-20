@@ -1,14 +1,15 @@
-import axios from "axios";
+import axiosWithAuth from "../utils/axiosWithAuth";
 import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
-const UpdateForm = ({ posts, setPosts }) => {
+const UpdateForm = () => {
   const history = useHistory();
   const { id } = useParams();
   const [formValues, setFormValues] = useState();
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios
+    axiosWithAuth()
       .get(`api/posts/${id}`)
       .then((res) => {
         setFormValues(res.data);
@@ -25,7 +26,7 @@ const UpdateForm = ({ posts, setPosts }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
+    axiosWithAuth()
       .put(`api/posts/${id}`, formValues)
       .then((res) => {
         setPosts([...posts, res.data]);

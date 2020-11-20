@@ -18,7 +18,7 @@ function App() {
       <Route path="/signin" component={SignIn} />
       <PrivateRoute path="/create" component={Create} />
       <Route path="/signup" component={SignUp} />
-      <Route path="/update-post/:id" component={UpdateForm} />
+      <Route path="/updatepost/:id" component={UpdateForm} />
     </div>
   );
 }
