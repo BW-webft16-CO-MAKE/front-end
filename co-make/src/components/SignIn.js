@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axiosWithAuth from "../utils/axiosWithAuth";
 import { Button, TextField } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
@@ -21,11 +21,8 @@ const SignIn = () => {
   };
 
   const getNewUser = (newUser) => {
-    axios
-      .post(
-        "https://co-make-backend-tt16.herokuapp.com/api/auth/login",
-        newUser
-      )
+    axiosWithAuth()
+      .post("api/auth/login", newUser)
       .then((res) => {
         console.log(res, "success!");
         window.localStorage.setItem("token", res.data.token);
@@ -82,11 +79,19 @@ const SignIn = () => {
           required
         />
       </div>
-            <div className="submit">
-                <Button variant="contained" color="secondary" type="submit" size="large" onClick={userSignIn}>Sign In</Button>
-            </div>
-        </form>
-    )
-}
+      <div className="submit">
+        <Button
+          variant="contained"
+          color="secondary"
+          type="submit"
+          size="large"
+          onClick={userSignIn}
+        >
+          Sign In
+        </Button>
+      </div>
+    </form>
+  );
+};
 
 export default SignIn;

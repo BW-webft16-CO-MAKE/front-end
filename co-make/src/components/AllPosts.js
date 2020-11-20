@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import { useHistory, useParams } from "react-router-dom";
-
-// const initialValues = {
-//   name: "",
-//   description: "",
-//   location: "",
-// };
+import { useHistory } from "react-router-dom";
 
 const AllPosts = ({ posts, updatePost }) => {
   const [allPosts, setAllPosts] = useState([]);
-  const { id } = useParams();
   const history = useHistory();
 
   const getAllPosts = () => {
@@ -25,15 +18,7 @@ const AllPosts = ({ posts, updatePost }) => {
       });
   };
 
-  const deletePost = () => {
-    axiosWithAuth()
-      .delete(`api/posts/${id}`)
-      .then((res) => history.push("/allposts"))
-      .catch((err) => console.log(err));
-  };
-
   useEffect(() => {
-    deletePost();
     getAllPosts();
   }, []);
 
@@ -46,9 +31,8 @@ const AllPosts = ({ posts, updatePost }) => {
           {allPosts.map((post) => (
             <div className="item">
               <p>Name: {post.post_name}</p>
-              <p>Descrription: {post.post_description}</p>
+              <p>Description: {post.post_description}</p>
               <p>Location: {post.post_location}</p>
-              <p>Id: {post.id}</p>
               <button
                 className="update-button"
                 onClick={() => {
@@ -56,9 +40,6 @@ const AllPosts = ({ posts, updatePost }) => {
                 }}
               >
                 Update
-              </button>
-              <button className="update-button" onClick={deletePost}>
-                Delete
               </button>
             </div>
           ))}

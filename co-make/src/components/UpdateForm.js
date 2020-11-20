@@ -8,6 +8,13 @@ const UpdateForm = () => {
   const [formValues, setFormValues] = useState();
   const [posts, setPosts] = useState([]);
 
+  const deletePost = () => {
+    axiosWithAuth()
+      .delete(`api/posts/${id}`)
+      .then((res) => history.push("/allposts"))
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     axiosWithAuth()
       .get(`api/posts/${id}`)
@@ -30,7 +37,7 @@ const UpdateForm = () => {
       .put(`api/posts/${id}`, formValues)
       .then((res) => {
         setPosts([...posts, res.data]);
-        history.push("/");
+        history.push("/allposts");
       })
       .catch((err) => console.log(err));
   };
@@ -62,6 +69,9 @@ const UpdateForm = () => {
           <button>Submit</button>
         </form>
       )}
+      <button className="update-button" onClick={deletePost}>
+        Delete
+      </button>
     </div>
   );
 };
