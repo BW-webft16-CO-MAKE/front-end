@@ -51,7 +51,7 @@ const SignUp = () => {
       .catch((err) => {
         console.log(err);
       });
-    history.push("/allposts");
+    history.push("/signin");
   };
 
   const userSubmit = () => {
