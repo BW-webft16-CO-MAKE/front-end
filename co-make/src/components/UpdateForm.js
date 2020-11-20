@@ -37,7 +37,7 @@ const UpdateForm = () => {
       .put(`api/posts/${id}`, formValues)
       .then((res) => {
         setPosts([...posts, res.data]);
-        history.push("/");
+        history.push("/allposts");
       })
       .catch((err) => console.log(err));
   };
