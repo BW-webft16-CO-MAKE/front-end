@@ -25,15 +25,7 @@ const AllPosts = ({ posts, updatePost }) => {
       });
   };
 
-  const deletePost = () => {
-    axiosWithAuth()
-      .delete(`api/posts/${id}`)
-      .then((res) => history.push("/allposts"))
-      .catch((err) => console.log(err));
-  };
-
   useEffect(() => {
-    deletePost();
     getAllPosts();
   }, []);
 
@@ -56,9 +48,6 @@ const AllPosts = ({ posts, updatePost }) => {
                 }}
               >
                 Update
-              </button>
-              <button className="update-button" onClick={deletePost}>
-                Delete
               </button>
             </div>
           ))}
